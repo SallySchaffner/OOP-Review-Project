@@ -1,77 +1,122 @@
-// PointType Class.cpp : This file contains the code and a separate test program for the PointType class.
+// CircleType Class.cpp : This file contains the code and a separate test program for the CircleType class.
 
 #include <iostream>
-#include "PointType.h"
+#include "CircleType.h"
 
 int main()
 {
-    cout << "Test PointType with integers" << endl;
+    cout << "Test CircleType with integers" << endl;
 
-    cout << "From default constructor: ";
-    PointType<int> Ip1;
-    cout << "(" << Ip1.getX() << ", " << Ip1.getY() << ")" << endl;
+    cout << "Default constructor (circle1): ";
+    CircleType<int> circle1;
+    cout << "   Center Point: ";
+    circle1.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle1.printCircumPoint();
+    cout << endl << endl;
 
-    cout << "From constructor with parameters: ";
-    PointType<int> Ip2(3, 5);
-    Ip2.print(); 
+    cout << "Constructor with coordinates (circle2): ";
+    CircleType<int> circle2(5, 3, -4, 0);
+    cout << "   Center Point: ";
+    circle2.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle2.printCircumPoint();
+    cout << endl << endl;
+
+    cout << "Constructor with points (circle3): ";
+    PointType<int> centerPoint(2, 0);
+    PointType<int> circumPoint(0, -2);
+    CircleType<int> circle3(centerPoint, circumPoint);
+    cout << "   Center Point: ";
+    circle3.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle3.printCircumPoint();
+    cout << endl << endl;
+
+    cout << "Test setCenterPoint, and setCircumPoint with circle1: ";
+    circle1.setCenterPoint(5, 3);
+    circle1.setCircumPoint(0, 3);
+    cout << "   Center Point: ";
+    circle1.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle1.printCircumPoint();
+    cout << endl << endl;
+
+    cout << "Test getCenterPoint and getCircumPoint with circle1: ";
+    centerPoint = circle1.getCenterPoint();
+    circumPoint = circle1.getCircumPoint();
+    cout << "   Center Point: ";
+    circle1.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle1.printCircumPoint();
+    cout << endl << endl;
+
+    cout << "Radius from circle1: " << circle1.calcRadius() << endl;
+    cout << "Area from circle1 " << circle1.calcArea() << endl;
+    cout << "Circumference from circle1: " << circle1.calcCircumference() << endl;
     cout << endl;
 
-    cout << "Assigning values to Ip1 (making a horizontal line): ";
-    Ip1.setPoint(-3, 5);
-    Ip1.print();
+    cout << "Testing the print function for circle2: " << endl;
+    circle2.print();
+    cout << endl << endl;
 
-    cout << "Distance between Ip1 and Ip2: ";
-    double d = Ip1 - Ip2;
-    cout << d << endl;
 
-    cout << "Assigning values to Ip1(making a vertical line) : ";
-    Ip1.setPoint(3, -5);
-    Ip1.print();
+    cout << endl << "Test CircleType with real numbers: " << endl;
 
-    cout << "Distance between Ip1 and Ip2: ";
-    d = Ip1 - Ip2;
-    cout << d << endl;
+    cout << "Default constructor (circle4): ";
+    CircleType<double> circle4;
+    cout << "   Center Point: ";
+    circle4.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle4.printCircumPoint();
+    cout << endl << endl;
 
-    cout << "Assigning values to Ip1(making a line with a slope) : ";
-    Ip1.setPoint(-2, -6);
-    Ip1.print();
+    cout << "Constructor with coordinates (circle5): ";
+    CircleType<double> circle5(5.1, 3.3, -4.6, 0);
+    cout << "   Center Point: ";
+    circle5.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle5.printCircumPoint();
+    cout << endl << endl;
 
-    cout << "Distance between Ip1 and Ip2: ";
-    d = Ip1 - Ip2;
-    cout << d << endl;
+    cout << "Constructor with points (circle6): ";
+    PointType<double> centerPoint2(2, 0);
+    PointType<double> circumPoint2(0, -2);
+    CircleType<double> circle6(centerPoint2, circumPoint2);
+    cout << "   Center Point: ";
+    circle6.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle6.printCircumPoint();
+    cout << endl << endl;
 
-    cout << "Testing individual sets and combined get: ";
-    Ip2.setX(-5);
-    Ip2.setY(6);
-    int x, y;
-    Ip2.getPoint(x, y);
-    cout << "New point: (" << x << ", " << y << ")" << endl;
+    cout << "Test setCenterPoint, and setCircumPoint with circle4: ";
+    circle4.setCenterPoint(5, 3);
+    circle4.setCircumPoint(0, 3);
+    cout << "   Center Point: ";
+    circle4.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle4.printCircumPoint();
+    cout << endl << endl;
 
-    cout << endl << "Test PointType with real numbers: " << endl;
+    cout << "Test getCenterPoint and getCircumPoint with circle4: ";
+    centerPoint2 = circle4.getCenterPoint();
+    circumPoint2 = circle4.getCircumPoint();
+    cout << "   Center Point: ";
+    circle4.printCenterPoint();
+    cout << "   Circumference Point: ";
+    circle4.printCircumPoint();
+    cout << endl << endl;
 
-    cout << "From default constructor: ";
-    PointType<double> Rp1;
-    cout << "(" << Rp1.getX() << ", " << Rp1.getY() << ")" << endl;
-
-    cout << "From constructor with parameters: ";
-    PointType<double> Rp2(3.5, 5.8);
-    Rp2.print();
+    cout << "Radius from circle4: " << circle4.calcRadius() << endl;
+    cout << "Area from circle4 " << circle4.calcArea() << endl;
+    cout << "Circumference from circle4: " << circle4.calcCircumference() << endl;
     cout << endl;
 
-    cout << "Assigning values to %p1(making a line with a slope) : ";
-    Rp1.setPoint(-2.7, -6.2);
-    Rp1.print();
+    cout << "Testing the print function for circle5: " << endl;
+    circle5.print();
+    cout << endl << endl;
 
-    cout << "Distance between Ip1 and Ip2: ";
-    d = Rp1 - Rp2;
-    cout << d << endl;
 
-    cout << "Testing individual sets and combined get: ";
-    Rp2.setX(-5.1);
-    Rp2.setY(6.7);
-    double x1, y1;
-    Rp2.getPoint(x1, y1);
-    cout << "New point: (" << x1 << ", " << y1 << ")" << endl;
 
     return 0;
 
