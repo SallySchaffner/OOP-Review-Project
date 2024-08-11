@@ -14,9 +14,10 @@ public:
   {
     x = 0;
     y = 0;
+    cout << fixed << setprecision(2) << showpoint;
   }
   // Constructor with parameters
-  PointType(T pX, T pY) : x(pX), y(pY) { }
+  PointType(T pX, T pY) : x(pX), y(pY) { cout << fixed << setprecision(2) << showpoint; }
 
   // Postcondition: Value provided as input is assigned to the instance variable.
   void setX(T xP)
@@ -59,8 +60,7 @@ public:
   // Postcondition, sends the values of the ordered pair to the display
   void print()
   {
-    cout << fixed << setprecision(2) << showpoint;
-    cout << "(" << x << ", " << y << ")" << endl;
+    cout << "(" << x << ", " << y << ")";
   }
 
 private:

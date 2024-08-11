@@ -105,7 +105,7 @@ void CircleType<T>::printCircumPoint()
 template <class T>
 double CircleType<T>::calcRadius()
 {
-  double radius = centerPoint - circumPoint;
+  double radius = centerPoint - circumPoint; // - operator overloaded to perform the distance calculation
   return radius;
 }
 
